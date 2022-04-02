@@ -13,10 +13,14 @@ data class Post(
     val comments: Comments?,
     val copyright: Copyright?,
     val likes: Likes?,
-    val reports: Reports?,
+    val reposts: Reposts?,
     val views: Views?,
     val postType: String, // Тип записи, может принимать следующие значения: post, copy, reply, postpone, suggest
+    val postSource: PostSource?,
+    val geo: Geo?,
+    val attachments: Array<Attachment>,
     val singerID: Int,
+    val copyHistory: Array<String>?,
     val canPin: Boolean,
     val canDelete: Boolean,
     val canEdit: Boolean,
@@ -29,7 +33,7 @@ data class Post(
 
 }
 
-class Comments (
+class Comments(
     val count: Int,
     val canPost: Boolean,
     val groupsCanPost: Boolean,
@@ -42,19 +46,19 @@ class Copyright (
     val link: String,
     val name: String,
     val type: String
-)
+        )
 
 class Likes (
     val count: Int,
     val userLikes: Boolean,
     val canLikes: Boolean,
     val canPublish: Boolean,
-)
+        )
 
-class Reports (
+class Reposts (
     val count: Int,
     val userReposted: Boolean
-)
+        )
 
 class Views (
     val count: Int
@@ -66,6 +70,6 @@ class Donut (
     val placeholder: Placeholder,
     val canPublishFreeCopy: Boolean,
     val editMode: String
-)
+        )
 
 class Placeholder
